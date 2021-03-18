@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?> 
+<web-app xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"  
+   xmlns = "http://java.sun.com/xml/ns/javaee"  
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee  
+   http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"  
+   id = "WebApp_ID" version = "3.0"> 
+   <display-name>YouTube Service</display-name> 
+    <servlet>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+             <param-name>jersey.config.server.provider.packages</param-name>
+             <param-value>com.endpoint.youtube.restservices</param-value>
+        </init-param>
+        <init-param>
+   			<param-name>url</param-name>
+   			<param-value>https://jon.endpoint.com/youtube-popular-20121222.json</param-value>
+  		</init-param>
+  		 <init-param>
+   			<param-name>intervalMiliSeconds</param-name>
+   			<param-value>60000</param-value>
+  		</init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+   
+    <servlet-mapping>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
